@@ -1,0 +1,13 @@
+<% if @status == "success"%>
+$(".alert-info.template").show().effect("fade", 3000);
+//add new option to the Templates dropdown
+$("#drpTemplates").append($("<option></option>")
+.attr("value", "<%= @emailtemplate.id %>")
+.attr("selected", "true")
+.text("<%= @emailtemplate.name %>"));
+$("#drpTemplates").data("selectBoxIt").refresh();
+$("#drpTemplates").data("selectBoxIt").attr("selected", "true");
+
+<% else %>
+$(".alert-error.template").show().effect("fade", 3000);
+<% end %>

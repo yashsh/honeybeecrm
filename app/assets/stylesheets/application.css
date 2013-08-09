@@ -1,0 +1,245 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require jquery.ui.all
+ *= require bootstrap
+ *= require_tree .
+ *= require_self
+ */
+
+body
+{
+	margin: 0;
+	padding: 0;
+	font-family: 'Helvetica';
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	padding: 0px 0px 0px 0px;
+	font-family: 'Museo500Regular', 'Helvetica';
+	color: #0000dd;
+}
+
+input
+{
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.page
+{
+	padding: 10px 10px 10px 10px;
+}
+
+.logo
+{
+	padding: 15px 15px 15px 15px;
+	font-family: 'Museo500Regular', 'Helvetica';
+	font-size: 25px;
+	color: #0000dd;	
+}
+
+.container-colored
+{
+	background-color: #F2F4F8;
+}
+
+.embossed
+{
+	/* Background */
+
+	/* Border bottom light */
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	/* Inner top shadow */
+	-moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.1);
+	/* Round corners */
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding-top: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+
+/* menu style */
+
+.menustyle
+{
+	font-weight: bold;
+	width: 99.8%;
+}
+.menustyle:after
+{
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+.menustyle ul
+{
+	background: url("/assets/menubg.gif") repeat-x scroll center center transparent;
+	border: 0 solid #BBBBBB;
+	margin: 0;
+	padding: 10px;
+	text-align: center;
+	width: 98%;
+}
+.menustyle ul li
+{
+	display: inline;
+	width: 100%;
+}
+.menustyle ul li a
+{
+	border-left: 1px solid #B5E2FE;
+	border-right: 1px solid #B5E2FE;
+	color: #494949;
+	margin: 0;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	text-decoration: none;
+}
+.menustyle ul li a:hover
+{
+	background: url("chromebg2-over.gif") repeat-x scroll center center transparent;
+}
+.menustyle ul li a[rel]:after
+{
+	content: " ";
+}
+
+.dropmenudiv
+{
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background-color: white;
+	border-color: #B5E2FE;
+	border-image: none;
+	border-style: solid;
+	border-width: 1px 1px 0;
+	font: 12px/18px Verdana;
+	position: absolute;
+	top: 0;
+	visibility: hidden;
+	width: 200px;
+	z-index: 100;
+}
+
+.dropmenudiv a
+{
+	border-bottom: 1px solid #B5E2FE;
+	color: black;
+	display: block;
+	font-weight: bold;
+	padding: 2px 0;
+	text-decoration: none;
+	text-indent: 3px;
+	width: 100%;
+}
+.dropmenudiv a:hover
+{
+	background-color: #EBF7FF;
+}
+
+/* ------ menu style ends */
+
+/* override bootstrap's checkbox padding style */
+.radio, .checkbox
+{
+	padding-left: 2px;
+	padding-right: 10px;
+}
+
+.bigger
+{
+	font-size: 1.5em;
+}
+
+.vertical-middle
+{
+	vertical-align: middle;
+}
+
+
+/* STYLISH CHECKBOX */
+
+input[type="checkbox"].nice-checkbox
+{
+	width: 24px;
+	-webkit-appearance: checkbox;
+	-webkit-rtl-ordering: logical;
+	-webkit-user-select: text;
+	-webkit-writing-mode: horizontal-tb;
+	background-color: rgba(0, 0, 0, 0);
+	border-bottom-color: rgb(0, 0, 0);
+	border-bottom-style: none;
+	border-bottom-width: 0px;
+	border-image-outset: 0px;
+	border-image-repeat: stretch;
+	border-image-slice: 100%;
+	border-image-source: none;
+	border-image-width: 1;
+	border-left-color: rgb(0, 0, 0);
+	border-left-style: none;
+	border-left-width: 0px;
+	border-right-color: rgb(0, 0, 0);
+	border-right-style: none;
+	border-right-width: 0px;
+	border-top-color: rgb(0, 0, 0);
+	border-top-style: none;
+	border-top-width: 0px;
+	box-sizing: border-box;
+	color: rgb(0, 0, 0);
+	cursor: auto;
+	direction: ltr;
+	display: inline-block;
+	font-family: arial;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	height: 20px;
+	letter-spacing: normal;
+	line-height: normal;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 5px;
+	margin-top: 0px;
+	outline-color: rgb(0, 0, 0);
+	outline-style: none;
+	outline-width: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	resize: none;
+	text-align: start;
+	text-indent: 0px;
+	text-shadow: none;
+	text-transform: none;
+	vertical-align: middle;
+	word-spacing: 0px;
+	writing-mode: lr-tb;
+}
+
+/* --- stylish checkbox ends */
+
+

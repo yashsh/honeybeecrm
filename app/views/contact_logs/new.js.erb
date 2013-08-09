@@ -1,0 +1,5 @@
+$("div#dialog").html("<%= escape_javascript(render(:partial => 'form')) %>").dialog(
+{title: "Add New Log for this Contact - <%= @contact_log.contactname %>", width: "800px", show: "fade",
+hide: "fade", modal: true, position: 'top'});
+//$("#logdate").datepicker();
+

@@ -1,0 +1,35 @@
+<h1>Listing contact_logs</h1>
+
+<table>
+  <tr>
+    <th>Contactid</th>
+    <th>Contactname</th>
+    <th>Email</th>
+    <th>Logdate</th>
+    <th>Logtype</th>
+    <th>Logdetail</th>
+    <th>Bsuccess</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @contact_logs.each do |contact_log| %>
+  <tr>
+    <td><%= contact_log.contactid %></td>
+    <td><%= contact_log.contactname %></td>
+    <td><%= contact_log.email %></td>
+    <td><%= contact_log.logdate %></td>
+    <td><%= contact_log.logtype %></td>
+    <td><%= contact_log.logdetail %></td>
+    <td><%= contact_log.bSuccess %></td>
+    <td><%= link_to 'Show', contact_log %></td>
+    <td><%= link_to 'Edit', edit_contact_log_path(contact_log) %></td>
+    <td><%= link_to 'Destroy', contact_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Contact log', new_contact_log_path %>

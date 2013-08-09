@@ -1,0 +1,10 @@
+<% if @email_template != nil %>
+$('#emailsubject').val('<%= @email_template.subject %>');
+//set rich text value and set to dirty, got to remove all those nasty newline and cr chars
+body = "<%= simple_format(raw(@email_template.body.gsub!("\r\n", ""))) %>";
+CKEDITOR.instances.emailbody.setData(body,
+function(){
+this.checkDirty();
+});
+<% end %>
+  

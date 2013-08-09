@@ -1,0 +1,160 @@
+<%= form_tag({:action => "sendmail"}, :remote => true) do |f| %>
+
+<div class="alert alert-success" style="display: none">
+	<button type="button" class="close" data-dismiss="alert">
+		×
+	</button>
+	All emails sent successfully!
+</div>
+
+<div class="row-fluid">
+	<div class="span6">
+		<span>Get Template: </span>
+		<br>
+		<select id="drpTemplates" class="selectpicker" onchange="showTemplate()">
+			<% if @email_templates.is_a?(Array) %>
+			<% @email_templates.each do |et| %>
+			<option value="<%= et.id %>"><%= et.name %></option>
+			<% end %>
+			<% else %>
+			<option>No Templates Saved</option>
+			<% end %>
+		</select>
+	</div>
+	<div class="span6">
+		or Save New Template:
+		<br>
+		<%= text_field "name", :name, {:id => "templatename"} %>
+	</div>
+</div>
+
+<%= label "Subject", "Subject" %>
+<%= text_field "subject", "subject", {:width => '400px', :size => '70', :id => "emailsubject"} %>
+
+<br>
+
+<%= label "Body", "Body" %>
+<%= text_area "body", "body", {:rows => '10', :width => '400px', :size => '50', :id => 'emailbody' } %>
+
+<br>
+<%= check_box "sendcopy", "sendcopy", {:checked_value => 1, :value => "Email copy to myself", :id => "sendcopy"} %>
+<%= label "emailcopy", "Email copy to myself", {:class => "checkbox inline"} %>
+<br>
+<br>
+
+<input type="hidden" id="socnet" name="socnet" />
+<input type="hidden" id="socnetid" name="socnetid" />
+<input type="hidden" id="contactid" name="contactid" />
+
+<div class="row-fluid">
+
+	<div class="span6">
+		<%= submit_tag "Send", {:class => "btn btn-primary send-email"} %>
+
+		<%= submit_tag "Save Template", {:class => "btn"} %>
+	</div>
+	<div class="span6">
+		<div id="msg" class="alert alert-info sendmail" style="display: none">
+			Please wait while emails are being sent...
+		</div>
+		<div id="msg" class="alert alert-info template" style="display: none">
+			Template saved
+		</div>
+		<div id="msg" class="alert alert-error template" style="display: none">
+			Error saving template
+		</div>
+		<div id="msg" class="alert alert-success sendmail" style="display: none">
+			All messages sent successfully.
+		</div>
+
+	</div>
+</div>
+
+<% end %>
+
+<script type="text/javascript">
+    $(function()
+    {
+        //make dropdowns cool
+        $(".selectpicker").selectBoxIt(
+        {
+            defaultText : 'Select Template'
+        });
+
+        //rich text box
+        CKEDITOR.replace('emailbody',
+        {
+            height : '150px',
+            toolbarGroups : [
+            {
+                name : 'clipboard',
+                groups : ['clipboard', 'undo']
+            },
+            {
+                name : 'editing',
+                groups : ['find', 'selection', 'spellchecker']
+            },
+            {
+                name : 'links'
+            },
+            {
+                name : 'insert'
+            },
+            {
+                name : 'basicstyles',
+                groups : ['basicstyles', 'cleanup']
+            },
+            {
+                name : 'paragraph',
+                groups : ['list', 'indent', 'blocks', 'align']
+            },
+            {
+                name : 'styles'
+            },
+            {
+                name : 'colors'
+            }]
+        });
+
+        $(".send-email").click(function()
+        {
+        	//copy contactid field values if any from parent page (contacts/index) to hidden fields on this form to submit
+        	$("#socnet").val($("#h_socnet").val());
+        	$("#socnetid").val($("#h_socnetid").val());
+        	$("#contactid").val($("#h_contactid").val());
+        	 
+            $(".alert-info.sendmail").fadeIn(1);
+        });
+        
+        
+    });
+
+    function showTemplate()
+    {
+        var id = 0;
+        if ($("#drpTemplates").find('option:selected').attr('value') != undefined)
+        {
+            id = $("#drpTemplates").find('option:selected').attr('value');
+        } else
+        {
+            id = $("#drpTemplates").find('option:selected').text();
+        }
+
+        if (id > 0)
+        {
+            //alert(id);
+            $.ajax(
+            {
+                url : '/email_templates/getTemplate/' + id,
+                type : "GET",
+                processData : false,
+                contentType : false,
+                dataType : 'script',
+                beforeSend : function(xhr, settings)
+                {
+                    xhr.setRequestHeader('accept', '*/*;q=0.5, ' + settings.accepts.script);
+                }
+            });
+        }
+    }
+</script>

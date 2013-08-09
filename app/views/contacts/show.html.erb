@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @contact.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @contact.email %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @contact.title %>
+</p>
+
+<p>
+  <b>Organization:</b>
+  <%= @contact.organization %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @contact.phone %>
+</p>
+
+<p>
+  <b>Altphone:</b>
+  <%= @contact.altphone %>
+</p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @contact.firstname %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @contact.lastname %>
+</p>
+
+<p>
+  <b>Saluation:</b>
+  <%= @contact.saluation %>
+</p>
+
+<p>
+  <b>Contacttype:</b>
+  <%= @contact.contacttype %>
+</p>
+
+<p>
+  <b>Contactsource:</b>
+  <%= @contact.contactsource %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @contact.notes %>
+</p>
+
+<p>
+  <b>Bclient:</b>
+  <%= @contact.bClient %>
+</p>
+
+<p>
+  <b>Bmentor:</b>
+  <%= @contact.bMentor %>
+</p>
+
+<p>
+  <b>Bsendmail:</b>
+  <%= @contact.bSendMail %>
+</p>
+
+<p>
+  <b>Bdel:</b>
+  <%= @contact.bDel %>
+</p>
+
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>

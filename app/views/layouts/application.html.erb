@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CRM Appy</title>
+		<%= stylesheet_link_tag "application", :media => "all" %>
+		<script type="text/javascript">
+            var CKEDITOR_BASEPATH = '/assets/ckeditor';
+		</script>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div class="logo">HoneyBee CRM</div>
+
+		<div class="menustyle">
+			<ul>
+				<li>
+					<%= link_to "Home", root_path %>
+				</li>
+				<li>
+					<%= link_to "Contacts", contacts_path %> 
+				</li>
+				<li>
+					<%= link_to "Mailer", contacts_mailer_path %> 
+				</li>
+				<li>
+					<%= link_to "Pictures", contacts_pictures_path %> 
+				</li>
+			</ul>
+		</div>
+		<div class="page">
+			<%= yield %>
+		</div>
+	</body>
+</html>

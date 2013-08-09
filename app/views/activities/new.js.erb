@@ -1,0 +1,12 @@
+$("div#dialog").html(
+"<%= escape_javascript(render(:partial => 'addreminder')) %>").dialog(
+{title: "Add Reminder", width: '500px', show: "fade",
+hide: "fade", modal: true, position: 'top'});
+
+//set focus of Reminder name text box to end of length in the box if it has value
+if($("#reminder_name") && $("#reminder_name").val().length > 0)
+{
+len = $("#reminder_name").val().length;
+$("#reminder_name").focus();
+$("#reminder_name")[0].setSelectionRange(len, len);
+}

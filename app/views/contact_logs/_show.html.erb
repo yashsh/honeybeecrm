@@ -1,0 +1,38 @@
+<% unless @contact_logs.blank? %>
+<% @contact_logs.each do |log| %>
+<% if !log.logdate.nil? %>
+<%= l(log.logdate) %>
+<% end %>
+<br>
+<div class="collapse-group">
+	<div class="well collapse">
+		<%= raw log.logdetail %>
+	</div>
+	<a class="btn" href="#">See More ></a>
+	<br>
+	<br>
+</div>
+<% end %>
+<% else %>
+No logs yet for this contact
+<% end %>
+
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $(".collapse-group > .btn").click(function(e)
+        {
+            e.preventDefault();
+            var $this = $(this);
+            var $collapse = $this.closest('.collapse-group').find('.collapse');
+            $collapse.collapse('toggle');
+            var $btn = $this.closest('.collapse-group').find('.btn');
+            if ($btn.html().match("More"))
+                $btn.html('See Less >');
+            else
+                $btn.html('See More >');
+
+        });
+    });
+
+</script>

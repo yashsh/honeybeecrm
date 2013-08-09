@@ -1,0 +1,106 @@
+<h2>Contacts</h2>
+
+<div id="contacts">
+	<div class="row-fluid">
+		<div class="container-fluid alert alert-info span9 bigger vertical-middle">
+			<% for alpha in 'A'..'Z' do %>
+			<%= link_to alpha, "?page=#{alpha}" %>&nbsp;&nbsp;
+			<% end %>
+		</div>
+	</div>
+
+	<% unless @connections.blank? %>
+	<% @connections.each do |c| %>
+	<div class="row-fluid">
+		<div class="container-fluid alert alert-info span9">
+			<div class="span3">
+				<% unless c.fbpic.blank? %>
+				<%= image_tag c.fbpic, :alt => c.name %>
+				<% end %>
+				<% unless c.twpic.blank? %>
+				<%= image_tag c.twpic, :alt => c.name %>
+				<% end %>
+				<% unless c.lipic.blank? %>
+				<%= image_tag c.lipic, :alt => c.name %>
+				<% end %>
+			</div>
+			<div class="span5">
+				<h3><%= c.name %></h3>
+				<br>
+				<%= c.email %>
+			</div>
+			<div class="span4">
+				<% unless c.fbuser.blank? %>
+				<%= link_to image_tag("facebook_logo.png", :size => "32x32", :alt => c.fbuser), "#", {:id => "facebook-msg", :contactid => c.id, :uid => c.fbuser, :class => "msging", :remote => true} %>
+				<% end %>
+				<% unless c.twuser.blank? %>
+				<%= link_to image_tag("twitter_logo.png", :size => "32x32", :alt => c.twuser), "#", {:id => "twitter-msg", :contactid => c.id, :uid => c.twuser, :class => "msging", :remote => true} %>
+				<% end %>
+				<% unless c.liuser.blank? %>
+				<%= link_to image_tag("linkedin_logo.png", :size => "32x32", :alt => c.liuser), "#", {:id => "linkedin-msg", :contactid => c.id, :uid => c.liuser, :class => "msging", :remote => true} %>
+				<% end %>
+				<% unless c.email.blank? %>
+				<%= link_to image_tag("mail_logo.png", :size => "32x32", :alt => c.email), "#", {:id => "email-msg", :contactid => c.id, :uid => c.email, :class => "msging", :remote => true} %>
+				<% end %>
+				<div class="hidden">
+					<br>
+					ID: <%= c.id %>, FB: <%= c.fbuser %>, TW: <%= c.twuser %>, LI: <%= c.liuser %>
+				</div>
+				<br>
+				<%= link_to "Set Reminder", new_activity_path(:contactid => c.id), {:contactid => c.id, :remote => true} %> 
+				<br>
+				<%= link_to 'See Touch Points', contact_log_path(:id => c.id), :remote => true %> |
+				<%= link_to 'Log Contact', new_contact_log_path(:contactid => c.id, :name => c.name, :organization => "", :email => c.email), :remote => true %>
+			</div>
+		</div>
+	</div>
+
+	<% end %>
+	<% else %>
+	No Connections found!
+	<% end %>
+</div>
+
+<div class="">
+	<input type="hidden" id="h_socnet" />
+	<input type="hidden" id="h_socnetid" />
+	<input type="hidden" id="h_contactid" />
+	<div id="dialog" class="row-fluid span9"></div>
+</div>
+
+<% if false %>
+<div class="row-fluid">
+	<div class="scrollable span6" style="height: 300px; overflow: scroll" >
+		<%= render 'licontacts'%>
+	</div>
+	<div class="scrollable span6" style="height: 300px; overflow: scroll" >
+		<%= render 'fbcontacts'%>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="scrollable span6" style="height: 300px; overflow: scroll" >
+		<%= render 'twcontacts'%>
+	</div>
+</div>
+<% end %>
+</div>
+
+<script type="text/javascript">
+    $(function()
+{
+//show dialog for msging
+$(".msging").click(function()
+{
+//cache some values so we know info of contact to whom to send the msg to
+$("#h_socnet").val($(this).attr("id"));
+$("#h_socnetid").val($(this).attr("uid"));
+$("#h_contactid").val($(this).attr("contactid"));
+$("div#dialog").html(
+"<%= escape_javascript(render(:partial => 'sendemail')) %>
+    ").dialog(
+    {title: "Send Message", width: "800px", show: "fade",
+    hide: "fade", modal: true, position: 'top'});
+    });
+    });
+
+</script>

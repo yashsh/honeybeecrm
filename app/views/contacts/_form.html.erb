@@ -1,0 +1,186 @@
+<%= form_for(@contact) do |f| %>
+<% if @contact.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+	<ul>
+		<% @contact.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="row-fluid">
+
+	<div class="field">
+		<div class="span3">
+			<%= f.label :name %>
+		</div>
+		<div class="span6">
+			<%= f.text_field :name %>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+
+	<div class="field">
+		<div class="span3">
+			<%= f.label :email %>
+		</div>
+		<div class="span6">
+			<%= f.text_field :email %>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+
+	<div class="field">
+		<div class="span3">
+			<%= f.label :title %>
+		</div>
+		<div class="span6">
+			<%= f.text_field :title %>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+
+	<div class="field">
+		<div class="span3">
+			<%= f.label :organization %>
+		</div>
+		<div class="span6">
+			<%= f.text_field :organization %>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+
+	<div class="field">
+		<div class="span3">
+			<%= f.label :phone %>
+		</div>
+		<div class="span6">
+			<%= f.text_field :phone %>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="field">
+		<div class="span3">
+			<%= f.label :altphone %>
+		</div>
+		<div class="span6">
+			<%= f.text_field :altphone %>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="field">
+		<div class="span3">
+			<%= f.label :firstname %>
+		</div>
+		<div class="span3">
+			<%= f.text_field :firstname %>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="field">
+		<div class="span3">
+			<%= f.label :lastname %>
+		</div>
+		<div class="span6">
+			<%= f.text_field :lastname %>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="field">
+		<div class="span3">
+
+			<%= f.label :saluation %>
+		</div>
+		<div class="span6">
+
+			<%= f.text_field :saluation %>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+
+	<div class="field">
+		<div class="span3">
+
+			<%= f.label :contacttype %>
+		</div>
+		<div class="span3">
+
+			<%= f.text_field :contacttype %>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="field">
+		<div class="span3">
+
+			<%= f.label :contactsource %>
+		</div>
+		<div class="span6">
+
+			<%= f.text_field :contactsource %>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="field">
+		<div class="span3">
+
+			<%= f.label :notes %>
+		</div>
+		<div class="span3">
+
+			<%= f.text_field :notes %>
+		</div>
+	</div>
+
+</div>
+<div class="row-fluid">
+	<div class="field">
+		<div class="span3">
+
+			<%= f.label :bClient %>
+
+		</div>
+		<div class="span3">
+
+			<%= f.check_box :bClient %>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+
+	<div class="field">
+		<%= f.label :bMentor %>
+		<br />
+		<%= f.check_box :bMentor %>
+	</div>
+	<div class="field">
+		<%= f.label :bSendMail %>
+		<br />
+		<%= f.check_box :bSendMail %>
+	</div>
+	<div class="field">
+		<%= f.label :bDel %>
+		<br />
+		<%= f.check_box :bDel %>
+	</div>
+</div>
+<div class="actions">
+	<%= f.submit :class => "btn btn-primary" %>
+</div>
+
+<% end %>

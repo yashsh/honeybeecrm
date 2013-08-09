@@ -1,0 +1,37 @@
+defaults: &DEFAULTS
+  linkedin:
+    key: 
+    secret: 
+    oauthtoken: 
+    oauthsecret: 
+    site: https://api.linkedin.com
+    authpath: /uas/oauth/authenticate
+    requestpath: /uas/oauth/requestToken
+    scope: r_basicprofile+r_emailaddress+r_network+r_contactinfo+w_messages+rw_nus
+    accesspath: /uas/oauth/accessToken
+    callback_url: http://127.0.0.1:3000/contacts/linkedin_callback
+  facebook:
+    app_id: 
+    secret_key: 
+    callback_url: http://localhost:3000/
+    perms: user_about_me,user_activities,user_groups,user_interests,user_likes,user_photos,friends_relationships,friends_photos,friends_likes,read_stream,publish_stream,xmpp_login
+  twitter:
+    consumer_key: 
+    consumer_secret: 
+    request_url: https://api.twitter.com/oauth/request_token
+    authorize_url: https://api.twitter.com/oauth/authorize
+    access_token_url: https://api.twitter.com/oauth/access_token
+    oauth_token: 
+    oauth_secret: 
+    oauth_callback: http://127.0.0.1:3000/auth/twitter/callback
+      
+
+development:
+  <<: *DEFAULTS
+  
+test:
+  <<: *DEFAULTS
+  
+production:
+  <<: *DEFAULTS
+  

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  contactid: 1
+  userid: 1
+  name: MyString
+  activitytype: MyString
+  description: MyString
+  targetstart: 2013-04-24 20:58:12
+  targetfinish: 2013-04-24 20:58:12
+  actualstart: 2013-04-24 20:58:12
+  actualfinish: 2013-04-24 20:58:12
+  completeby: 1
+  bCompleted: false
+  bDel: false
+
+two:
+  contactid: 1
+  userid: 1
+  name: MyString
+  activitytype: MyString
+  description: MyString
+  targetstart: 2013-04-24 20:58:12
+  targetfinish: 2013-04-24 20:58:12
+  actualstart: 2013-04-24 20:58:12
+  actualfinish: 2013-04-24 20:58:12
+  completeby: 1
+  bCompleted: false
+  bDel: false

@@ -1,0 +1,56 @@
+<h1>Play with Pictures</h1>
+<% @photos.each do |photos| %>
+<% unless photos.blank? %>
+<% photos.each do |ph| %>
+<% if !ph['tags'].blank? %>
+<% @tagnames = "" %>
+<% @tagcoord = "" %>
+<% ph['tags']['data'].each do |tag| %>
+<% @tagnames = @tagnames + tag['name'] + ", " %>
+<% @tagcoord = @tagcoord + tag['x'].to_s + "," + tag['y'].to_s + "," + tag['name'] + ";"%>
+<% end %>
+
+<%= image_tag ph['source'], {:tags => @tagcoord} %>
+<br>
+<%= ph['name'] %>
+<br />
+In this picture are: <%= @tagnames %>
+<br>
+<br>
+<% end %>
+<% end %>
+<% end %>
+<% end %>
+
+<div id="dialog"></div>
+
+<script type="text/javascript">
+    $(function()
+    {
+        $('img').on('mousemove', function(e)
+        {
+            var offset = $(this).offset();
+            x = e.pageX - offset.left;
+            y = e.pageY - offset.top;
+            
+            var tagdata = $(this).attr("tags");
+            //process tags by splitting first by ; then by ,
+            tags = tagdata.split(";");
+            $("div#dialog").html(x + ", " + y).css({
+            	"left": e.pageX + 10,
+            	"top": e.pageY + 10,
+            	"z-index": 1000,
+            	"position": 'absolute',
+            	"background-color": '#fff'
+            }).show();
+
+        });
+
+        $('img').on('mouseout', function(e)
+        {
+        	$("div#dialog").hide();
+
+        });
+    });
+
+</script>

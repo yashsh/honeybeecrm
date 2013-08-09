@@ -1,0 +1,13 @@
+defaults: &DEFAULTS
+  remind_before_days: 3
+      
+
+development:
+  <<: *DEFAULTS
+  
+test:
+  <<: *DEFAULTS
+  
+production:
+  <<: *DEFAULTS
+  

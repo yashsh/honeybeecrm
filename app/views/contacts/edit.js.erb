@@ -1,0 +1,4 @@
+$("div#dialog").html(
+"<%= escape_javascript(render(:partial => 'form')) %>").dialog(
+{title: "Edit Contact", width: "800px", show: "fade", 
+hide: "fade", modal: true, position: 'top'}); 

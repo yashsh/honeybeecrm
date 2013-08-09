@@ -1,0 +1,3 @@
+$("div#dialog").html("<%= escape_javascript(render(:partial => 'show')) %>").dialog(
+{title: "Logs for this Contact", width: "800px", show: "fade", 
+hide: "fade", modal: true, position: 'top'}); 

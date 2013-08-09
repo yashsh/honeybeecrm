@@ -1,0 +1,5 @@
+$(".alert-info.sendmail").effect("fade", 1000).hide();
+$(".alert-success.sendmail").show().effect("fade", 3000);
+<% if @socnet_message %>
+$("div#dialog").html("").dialog("close");
+<% end %>

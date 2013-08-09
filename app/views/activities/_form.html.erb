@@ -1,0 +1,65 @@
+<%= form_for(@activity) do |f| %>
+  <% if @activity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
+
+      <ul>
+      <% @activity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :contactid %><br />
+    <%= f.number_field :contactid %>
+  </div>
+  <div class="field">
+    <%= f.label :userid %><br />
+    <%= f.number_field :userid %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :activitytype %><br />
+    <%= f.text_field :activitytype %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :targetstart %><br />
+    <%= f.datetime_select :targetstart %>
+  </div>
+  <div class="field">
+    <%= f.label :targetfinish %><br />
+    <%= f.datetime_select :targetfinish %>
+  </div>
+  <div class="field">
+    <%= f.label :actualstart %><br />
+    <%= f.datetime_select :actualstart %>
+  </div>
+  <div class="field">
+    <%= f.label :actualfinish %><br />
+    <%= f.datetime_select :actualfinish %>
+  </div>
+  <div class="field">
+    <%= f.label :completeby %><br />
+    <%= f.number_field :completeby %>
+  </div>
+  <div class="field">
+    <%= f.label :bCompleted %><br />
+    <%= f.check_box :bCompleted %>
+  </div>
+  <div class="field">
+    <%= f.label :bDel %><br />
+    <%= f.check_box :bDel %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

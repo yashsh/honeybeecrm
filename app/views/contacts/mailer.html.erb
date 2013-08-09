@@ -1,0 +1,184 @@
+<h1>Mailer</h1>
+
+<table>
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+</table>
+
+<table id="MyGrid" class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th colspan="3"><span class="datagrid-header-title"></span><div class="datagrid-header-left"></div>
+			<div class="datagrid-header-right">
+				<div class="input-append search">
+					<input type="text" class="input-medium" placeholder="Search">
+					<a href="#" class="btn"> <i class="icon-search"></i> </a>
+				</div>
+			</div></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th>Edit</th>
+			<th>Delete</th>
+			<th>Send Email?</th>
+			<th>Contact ID</th>
+			<th>Name</th>
+			<th>Organization</th>
+			<th>Email</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>Add new contact</td>
+			<td></td>
+			<td> <%= form_for(Contact.new, :remote => true) do |f| %>
+			<div class="control-group">
+				<div class="controls">
+					<label class="checkbox"><%= check_box "Select", "SendEmail" %></label>
+				</div>
+			</div></td>
+			<td><%= f.submit "Add Contact", {:class => "btn"} %></td>
+			<td><%= f.text_field :name %></td>
+			<td><%= f.text_field :organization %></td>
+			<td><%= f.text_field :email %>
+
+			<% end %>
+			<%= form_tag({:action => "updateSendEmail"}, :remote => true) do |f| %> </td>
+		</tr>
+
+		<% unless @contacts.blank? %>
+		<% @contacts.each do |contact| %>
+		<tr>
+			<td><%= link_to 'See Logs', url_for(:controller => "contact_logs", :action => "show", :id => contact.id), :remote => true %></td>
+			<td><%= link_to 'Log', new_contact_log_path(:contactid => contact.id, :name => contact.name, :organization => contact.organization, :email => contact.email), :remote => true %></td>
+			<td><%= link_to 'Edit', edit_contact_path(contact), :remote => true %></td>
+			<td><%= link_to 'Delete', contact, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+			<td><%= check_box "Select", contact.id, {:checked_value => contact.id, :checked => contact.bSendMail}, contact.id %></td>
+			<td><%= contact.id %></td>
+			<td><%= link_to contact.name, contact, :remote => true %></td>
+			<td><%= contact.organization %></td>
+			<td><%= contact.email %></td>
+		</tr>
+		<% end %>
+		<% else %>
+		<td colspan="9">No Contacts yet</td>
+		<% end %>
+	</tbody>
+
+	<tfoot>
+		<tr>
+			<th colspan="9">
+			<div class="datagrid-footer-left" style="display:none;">
+				<div class="grid-controls">
+					<span><span class="grid-start"></span> - <span class="grid-end"></span> of <span class="grid-count"></span></span>
+					<select class="grid-pagesize">
+						<option>10</option><option>20</option><option>50</option><option>100</option>
+					</select>
+					<span>Per Page</span>
+				</div>
+			</div>
+			<div class="datagrid-footer-right" style="display:none;">
+				<div class="grid-pager">
+					<button class="btn grid-prevpage">
+						<i class="icon-chevron-left"></i>
+					</button>
+					<span>Page</span>
+					<div class="input-append dropdown combobox">
+						<input class="span1" type="text">
+						<button class="btn" data-toggle="dropdown">
+							<i class="caret"></i>
+						</button>
+						<ul class="dropdown-menu"></ul>
+					</div>
+					<span>of <span class="grid-pages"></span></span>
+					<button class="btn grid-nextpage">
+						<i class="icon-chevron-right"></i>
+					</button>
+				</div>
+			</div></th>
+		</tr>
+	</tfoot>
+</table>
+
+<%= submit_tag 'Send Emails', :id => "sendemails", :class => "btn btn-primary" %>
+
+<% end %>
+
+<div class="hidden">
+	<div class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">Dropdown trigger <b class="caret"></b></a>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+			<li>
+				<a href="#">Whats up</a>
+			</li>
+			<li class="divider"></li>
+			<li>
+				Any more?
+			</li>
+		</ul>
+	</div>
+
+	<div class="input-append dropdown combobox">
+		<input class="span2" type="text">
+		<button class="btn" data-toggle="dropdown">
+			<i class="caret"></i>
+		</button>
+		<ul class="dropdown-menu">
+			<li>
+				<a href="#">Item One</a>
+			</li>
+			<li>
+				<a href="#">Item Two</a>
+			</li>
+			<li>
+				<a href="#">Item Three</a>
+			</li>
+			<li class="divider"></li>
+			<li>
+				<a href="#">Item After Divider</a>
+			</li>
+		</ul>
+	</div>
+
+	<br />
+</div>
+
+<br>
+<br>
+<%= link_to 'New Contact', new_contact_path %>
+<br>
+<br>
+
+<div id="dialog"></div>
+<script type ="text/javascript">
+    $(document).ready(function()
+    {
+        //$("#MyGrid").dataTable();
+        /*
+         $(document).on("dialog", ".datepicker", function(e)
+         {
+         //alert("hi");
+         //this.datepicker();
+         $(e.target).datepicker(
+         {
+         dateFormat : "dd/mm/yy",
+         changeMonth : true,
+         changeYear : true,
+         onClose : function()
+         {
+         $(this).valid();
+         }
+         });
+
+         });
+         */
+
+    });
+
+</script>

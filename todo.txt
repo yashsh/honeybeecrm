@@ -1,0 +1,10 @@
+1. To-Do List and check off
+2. Linkedin integration for contacts
+3. Set followups and reminders 
+4. Security, login and roles, access to modules
+
+
+Other stuff
+- Track level and interest of contact and strength to show funnel/KPI chart
+5. Facebook integration and birthday reminders via email
+6. Email integration

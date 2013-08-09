@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contactid:</b>
+  <%= @contact_log.contactid %>
+</p>
+
+<p>
+  <b>Contactname:</b>
+  <%= @contact_log.contactname %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @contact_log.email %>
+</p>
+
+<p>
+  <b>Logdate:</b>
+  <%= @contact_log.logdate %>
+</p>
+
+<p>
+  <b>Logtype:</b>
+  <%= @contact_log.logtype %>
+</p>
+
+<p>
+  <b>Logdetail:</b>
+  <%= @contact_log.logdetail %>
+</p>
+
+<p>
+  <b>Bsuccess:</b>
+  <%= @contact_log.bSuccess %>
+</p>
+
+
+<%= link_to 'Edit', edit_contact_log_path(@contact_log) %> |
+<%= link_to 'Back', contact_logs_path %>

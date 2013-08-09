@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  contactid: 1
+  contactname: MyString
+  email: MyString
+  logdate: 2013-04-24 19:13:57
+  logtype: MyString
+  logdetail: MyString
+  bSuccess: false
+
+two:
+  contactid: 1
+  contactname: MyString
+  email: MyString
+  logdate: 2013-04-24 19:13:57
+  logtype: MyString
+  logdetail: MyString
+  bSuccess: false

@@ -1,0 +1,5 @@
+<% if @activity != nil && @activity.id %>
+appendNewTodo('<%= @activity.id %>', '<%= @activity.name %>', '<%= @activity.activitytype%>');
+$("input#activities_name").val("");
+$("div#dialog").html("").dialog("close");
+<% end %>

@@ -1,0 +1,4 @@
+$("div#dialog").html(
+"<%= escape_javascript(render(:partial => 'sendemail')) %>").dialog(
+{title: "Send Emails", width: "800px", show: "fade", 
+hide: "fade", modal: true, position: 'top'}); 
