@@ -1,5 +1,5 @@
-honeybeecrm
-===========
+HoneyBee CRM
+============
 
 Contact management and Social CRM for busy professionals
 
@@ -7,8 +7,15 @@ As many of us, I try to do networking and try to keep in touch with my contacts.
 
 HoneyBee CRM grew out of that need and allows users to link their social networks like LinkedIn, Facebook, Twitter, and their contacts so that they can manage and keep in touch with these contacts all in one place. HoneyBee CRM also provides automatic alerts and reminders for following up with contacts.
 
-Lets make our networking lives easier!
+Lets make our networking lives easier! Hope this is as useful to you as it for me. Thanks for checking it out.
 
-Hope this is as useful to you as it for me. Thanks for checking it out.
+============
+
+Technical Details
+=================
+
+The app is written in Ruby 2 and Rails 3.2 on the backend and jQuery/Bootstrap on the frontend. Its still in beta and under development.
+
+Feel free to send in your comments.
 
 
